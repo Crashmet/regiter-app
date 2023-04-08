@@ -190,12 +190,7 @@
                         class="checkbox-label__tooltip-icon icon sprite-icons"
                         data-tippy-directive=""
                         tabindex="0"
-                      >
-                        <use
-                          href="/_nuxt/8518bae7a68da9e9ae1000967ded07dc.svg#i-i-hint"
-                          xlink:href="/_nuxt/8518bae7a68da9e9ae1000967ded07dc.svg#i-i-hint"
-                        ></use>
-                      </svg>
+                      ></svg>
                     </span>
                   </div>
                 </div>
@@ -357,12 +352,7 @@
                         class="checkbox-label__tooltip-icon icon sprite-icons"
                         data-tippy-directive=""
                         tabindex="0"
-                      >
-                        <use
-                          href="/_nuxt/8518bae7a68da9e9ae1000967ded07dc.svg#i-i-hint"
-                          xlink:href="/_nuxt/8518bae7a68da9e9ae1000967ded07dc.svg#i-i-hint"
-                        ></use>
-                      </svg>
+                      ></svg>
                     </span>
                   </div>
                 </div>
@@ -423,12 +413,7 @@
                         class="checkbox-label__tooltip-icon icon sprite-icons"
                         data-tippy-directive=""
                         tabindex="0"
-                      >
-                        <use
-                          href="/_nuxt/8518bae7a68da9e9ae1000967ded07dc.svg#i-i-hint"
-                          xlink:href="/_nuxt/8518bae7a68da9e9ae1000967ded07dc.svg#i-i-hint"
-                        ></use>
-                      </svg>
+                      ></svg>
                     </span>
                   </div>
                 </div>
@@ -480,13 +465,8 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld,
-  },
 };
 </script>
 
@@ -582,6 +562,25 @@ export default {
   padding-left: 4rem;
 }
 
+.switcher-label--thin .switcher-label__input + label:before {
+  background: none;
+  border: 0.2rem solid #bababa;
+}
+
+.switcher-label--thin .switcher-label__main:before {
+  height: 2rem;
+  min-width: 3.5rem;
+  width: 3.5rem;
+}
+
+.switcher-label__main:before {
+  background: #a3a3a3;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  width: 5rem;
+}
+
 .switcher-label__main {
   -webkit-box-align: center;
   -moz-box-align: center;
@@ -665,6 +664,24 @@ export default {
   -o-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
+}
+
+.settings-section__current-param-edit-icon {
+  fill: currentColor;
+  height: 2.2rem;
+  margin-left: 0.5rem;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 2.2rem;
+}
+
+.icon {
+  display: inline-block;
+  height: 2.5rem;
+  vertical-align: middle;
+  width: 2.5rem;
 }
 
 .wide-section__body {
@@ -782,6 +799,316 @@ export default {
   margin-bottom: 2rem;
 }
 
+.settings-section__field.is-flex {
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.settings-section__field:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.settings-section__notifications .settings-section__field {
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.radio-label__input {
+  height: 1px;
+  left: -9999px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  top: -9999px;
+  visibility: hidden;
+  width: 1px;
+}
+
+.settings-section__field .radio-label__main {
+  font-size: 1.4rem;
+}
+
+.radio-label__main {
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  color: #000;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: 500;
+  height: 100%;
+  line-height: 1.2;
+  margin: 0;
+  min-height: 2rem;
+  min-width: 32rem;
+  padding: 0 0 0 2.5rem;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.radio-label__main:after,
+.radio-label__main:before {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  content: '';
+  position: absolute;
+}
+
+.radio-label__main:before {
+  background: #fff;
+  border: 1px solid #2dc574;
+  height: 18px;
+  left: 0;
+  top: 0;
+  width: 18px;
+}
+
+.radio-label__main:after {
+  background-color: transparent;
+  height: 10px;
+  left: 4px;
+  top: 4px;
+  width: 10px;
+}
+
+.radio-label__input:checked + .radio-label__main:before {
+  border-width: 0.2rem;
+}
+
+.radio-label__input:checked + .radio-label__main:after {
+  background-color: #2dc574;
+}
+
+.settings-section__field .radio-label__main--link {
+  color: #2dc574;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.settings-section .post-entry + .settings-section__fields {
+  margin-top: 2rem;
+}
+
+.multiselect {
+  position: relative;
+}
+
+.multiselect.is-sm .multiselect__input {
+  height: 28px;
+}
+
+.multiselect__input {
+  background: #fff;
+  border: 1px solid #e1e1e3;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  font-family: inherit;
+  font-weight: 500;
+  height: 45px;
+  padding: 0 40px 0 10px;
+  width: 100%;
+}
+
+.multiselect__header:after,
+.multiselect__input {
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  -moz-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.multiselect.is-sm .multiselect__header:after {
+  background-size: 10px;
+  right: 11px;
+  top: 11px;
+  width: 10px;
+}
+
+.multiselect__header:after,
+.multiselect__input {
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  -moz-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.multiselect__header:after {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='15' height='8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m.842.99 6.428 6 6.429-6' stroke='%232DC574' stroke-width='1.7' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  content: '';
+  height: 8px;
+  position: absolute;
+  right: 20px;
+  top: 18px;
+  width: 15px;
+}
+
+.checkbox-label__input {
+  height: 1px;
+  left: -9999px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  top: -9999px;
+  visibility: hidden;
+  width: 1px;
+}
+
+.settings-section__field .checkbox-label__main {
+  width: 100%;
+}
+
+.checkbox-label__main {
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0;
+  min-height: 2rem;
+  min-width: 42rem;
+  padding: 0 0 0 2.5rem;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 100%;
+}
+
+.checkbox-label__main:before {
+  border: 1px solid #2dc574;
+  -webkit-border-radius: 0.2rem;
+  -moz-border-radius: 0.2rem;
+  border-radius: 0.2rem;
+  content: '';
+  height: 1.8rem;
+  left: 0;
+  position: absolute;
+  top: 0.1rem;
+  width: 1.8rem;
+}
+
+.checkbox-label__input:checked + .checkbox-label__main:before {
+  background-color: #2dc574;
+  border-color: #2dc574;
+  content: '';
+  position: absolute;
+}
+
+.checkbox-label__input:checked + .checkbox-label__main:after {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='14' height='11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.492 6.092 4.76 9.333l7.843-7.778' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: #fff;
+  content: '';
+  height: 1.3rem;
+  left: 0.2rem;
+  position: absolute;
+  top: 0.3rem;
+  width: 1.3rem;
+}
+
+.checkbox-label__tooltip-icon.icon {
+  fill: #cdcdcd;
+  cursor: help;
+  height: 2rem;
+  margin-left: 0.5rem;
+  width: 2rem;
+}
+
+.settings-section__bottom {
+  border-top: 0.1rem solid #e1e1e3;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+}
+
+.btn--block {
+  display: block;
+  width: 100%;
+}
+
+.btn {
+  background: transparent;
+  border: 0.1rem solid transparent;
+  -webkit-border-radius: 0.4rem;
+  -moz-border-radius: 0.4rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.1;
+  outline: none;
+  padding: 1.3rem 2rem;
+  text-align: center;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.btn--primary {
+  background: #2dc574;
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: #26b066;
+  transition: background 0.3s ease-in;
+}
+
+.btn--primary:active {
+  background: #2b8e59;
+  transition: background 0.3s ease-in;
+}
+
+.btn__text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 @media (min-width: 576px) {
   .settings-section .wide-section__body {
     max-width: 49rem;
@@ -892,6 +1219,48 @@ export default {
 
   .is-desktop-hidden {
     display: none !important;
+  }
+
+  .settings-section__notifications .settings-section__field:not(:last-child) {
+    border-bottom: 0.1rem solid #e1e1e3;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .settings-section__field {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .settings-section__notifications .settings-section__radio {
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    -webkit-flex: 0 0 12rem;
+    -ms-flex: 0 0 12rem;
+    flex: 0 0 12rem;
+    margin-right: 1rem;
+    max-width: 12rem;
+  }
+
+  .settings-section__field-zone {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .settings-section__field-zone label {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    margin-bottom: 0;
+    margin-right: 2.5rem;
+    margin-top: 0.4rem;
   }
 }
 
