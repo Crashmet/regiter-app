@@ -388,11 +388,34 @@
                       />
                     </div>
                     <!---->
+
+                    <perfect-scrollbar>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Quas quibusdam recusandae tempore harum dicta
+                      necessitatibus dolore, consequatur expedita voluptatem
+                      facere distinctio nulla hic quidem. Recusandae fugiat
+                      repellendus porro iusto asperiores. Lorem ipsum dolor sit
+                      amet consectetur adipisicing elit. Consectetur corporis
+                      temporibus aut dignissimos voluptatem dolorem distinctio
+                      sunt eaque repudiandae itaque vitae veritatis numquam
+                      earum aliquid, et praesentium deserunt est ad! Lorem ipsum
+                      dolor sit amet consectetur adipisicing elit. Repellendus
+                      enim nostrum tenetur accusantium reprehenderit nisi
+                      inventore quos libero cupiditate dolorem dolorum,
+                      consectetur velit natus perferendis suscipit?
+                      Necessitatibus enim consequatur odio. Lorem ipsum dolor
+                      sit, amet consectetur adipisicing elit. Ut placeat,
+                      veritatis quod assumenda vitae ipsam sed alias? Totam
+                      inventore voluptate explicabo accusantium laboriosam
+                      tempore, nobis, assumenda perspiciatis praesentium
+                      recusandae quo.
+                    </perfect-scrollbar>
                     <!---->
                   </div>
                 </div>
               </div>
             </div>
+
             <div class="settings-section__fields" style="margin-top: 2.5rem">
               <div class="settings-section__field">
                 <div class="checkbox-label has-tooltip" value="true">
@@ -418,6 +441,7 @@
                   </div>
                 </div>
               </div>
+
               <div class="settings-section__field" style="display: block">
                 <div class="checkbox-label has-tooltip">
                   <div style="display: flex">
@@ -437,12 +461,7 @@
                         class="checkbox-label__tooltip-icon icon sprite-icons"
                         data-tippy-directive=""
                         tabindex="0"
-                      >
-                        <use
-                          href="/_nuxt/8518bae7a68da9e9ae1000967ded07dc.svg#i-i-hint"
-                          xlink:href="/_nuxt/8518bae7a68da9e9ae1000967ded07dc.svg#i-i-hint"
-                        ></use>
-                      </svg>
+                      ></svg>
                     </span>
                   </div>
                 </div>
@@ -465,8 +484,13 @@
 </template>
 
 <script>
+import { PerfectScrollbar } from 'vue2-perfect-scrollbar';
+
 export default {
   name: 'App',
+  components: {
+    PerfectScrollbar,
+  },
 };
 </script>
 
@@ -1271,6 +1295,11 @@ export default {
 }
 </style>
 
+<style>
+.ps {
+  height: 200px;
+}
+</style>
 <style src="./styles/fonts/fonts.css"></style>
 <style src="./styles/normalize.css"></style>
 <style src="./styles/styles.css"></style>
