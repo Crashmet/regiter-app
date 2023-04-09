@@ -8,7 +8,7 @@
       </div>
     </div>
 
-    <div class="container-fluid padding-top-2">
+    <div class="container-fluid padding-top-2 mb-100">
       <div class="settings-section">
         <div class="wide-section settings-section__subsection">
           <div class="wide-section__header is-flex">
@@ -47,16 +47,13 @@
               >
                 <label class="input-field__label caption">Компания</label>
                 <div class="input-field__main">
-                  <!---->
                   <input
                     type="text"
                     name="text-field"
-                    placeholder=""
                     readonly="readonly"
                     class="input-field__input input"
                   />
                   <div class="extra-field__currency"></div>
-                  <!---->
                 </div>
               </div>
               <div
@@ -66,7 +63,6 @@
               >
                 <label class="input-field__label caption">Логин</label>
                 <div class="input-field__main">
-                  <!---->
                   <input
                     type="text"
                     name="text-field"
@@ -75,7 +71,6 @@
                     class="input-field__input input"
                   />
                   <div class="extra-field__currency"></div>
-                  <!---->
                 </div>
               </div>
               <div
@@ -182,16 +177,42 @@
                       >Push</label
                     >
                   </div>
-                  <div>
-                    <span class="checkbox-label__main-tooltip"
-                      ><svg
-                        content="Можно установить только в приложении"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="checkbox-label__tooltip-icon icon sprite-icons"
-                        data-tippy-directive=""
-                        tabindex="0"
-                      ></svg>
-                    </span>
+                  <div class="checkbox-label__main-tooltip">
+                    <div class="checkbox-label__tooltip">
+                      Прямой переход в обьявлении на источнике
+                    </div>
+                    <svg
+                      class="checkbox-label__tooltip-icon icon sprite-icons"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      viewBox="0,0,256,256"
+                      width="48px"
+                      height="48px"
+                      fill-rule="nonzero"
+                    >
+                      <g
+                        fill="#cdcdcd"
+                        fill-rule="nonzero"
+                        stroke="none"
+                        stroke-width="1"
+                        stroke-linecap="butt"
+                        stroke-linejoin="miter"
+                        stroke-miterlimit="10"
+                        stroke-dasharray=""
+                        stroke-dashoffset="0"
+                        font-family="none"
+                        font-weight="none"
+                        font-size="none"
+                        text-anchor="none"
+                        style="mix-blend-mode: normal"
+                      >
+                        <g transform="scale(5.33333,5.33333)">
+                          <path
+                            d="M24,4c-11.02793,0 -20,8.97207 -20,20c0,11.02793 8.97207,20 20,20c11.02793,0 20,-8.97207 20,-20c0,-11.02793 -8.97207,-20 -20,-20zM24,7c9.40662,0 17,7.59339 17,17c0,9.40661 -7.59338,17 -17,17c-9.40661,0 -17,-7.59339 -17,-17c0,-9.40661 7.59339,-17 17,-17zM24,14c-1.10457,0 -2,0.89543 -2,2c0,1.10457 0.89543,2 2,2c1.10457,0 2,-0.89543 2,-2c0,-1.10457 -0.89543,-2 -2,-2zM23.97656,20.97852c-0.82766,0.01293 -1.48843,0.69381 -1.47656,1.52148v11c-0.00765,0.54095 0.27656,1.04412 0.74381,1.31683c0.46725,0.27271 1.04514,0.27271 1.51238,0c0.46725,-0.27271 0.75146,-0.77588 0.74381,-1.31683v-11c0.00582,-0.40562 -0.15288,-0.7963 -0.43991,-1.08296c-0.28703,-0.28666 -0.67792,-0.44486 -1.08353,-0.43852z"
+                          ></path>
+                        </g>
+                      </g>
+                    </svg>
                   </div>
                 </div>
                 <div class="settings-section__field is-flex">
@@ -345,15 +366,43 @@
                     </label>
                   </div>
                   <div>
-                    <span class="checkbox-label__main-tooltip"
-                      ><svg
-                        content="Прямой переход в объявление на источнике"
-                        xmlns="http://www.w3.org/2000/svg"
+                    <div class="checkbox-label__main-tooltip">
+                      <div class="checkbox-label__tooltip">
+                        Прямой переход в обьявлении на источнике
+                      </div>
+                      <svg
                         class="checkbox-label__tooltip-icon icon sprite-icons"
-                        data-tippy-directive=""
-                        tabindex="0"
-                      ></svg>
-                    </span>
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0,0,256,256"
+                        width="48px"
+                        height="48px"
+                        fill-rule="nonzero"
+                      >
+                        <g
+                          fill="#cdcdcd"
+                          fill-rule="nonzero"
+                          stroke="none"
+                          stroke-width="1"
+                          stroke-linecap="butt"
+                          stroke-linejoin="miter"
+                          stroke-miterlimit="10"
+                          stroke-dasharray=""
+                          stroke-dashoffset="0"
+                          font-family="none"
+                          font-weight="none"
+                          font-size="none"
+                          text-anchor="none"
+                          style="mix-blend-mode: normal"
+                        >
+                          <g transform="scale(5.33333,5.33333)">
+                            <path
+                              d="M24,4c-11.02793,0 -20,8.97207 -20,20c0,11.02793 8.97207,20 20,20c11.02793,0 20,-8.97207 20,-20c0,-11.02793 -8.97207,-20 -20,-20zM24,7c9.40662,0 17,7.59339 17,17c0,9.40661 -7.59338,17 -17,17c-9.40661,0 -17,-7.59339 -17,-17c0,-9.40661 7.59339,-17 17,-17zM24,14c-1.10457,0 -2,0.89543 -2,2c0,1.10457 0.89543,2 2,2c1.10457,0 2,-0.89543 2,-2c0,-1.10457 -0.89543,-2 -2,-2zM23.97656,20.97852c-0.82766,0.01293 -1.48843,0.69381 -1.47656,1.52148v11c-0.00765,0.54095 0.27656,1.04412 0.74381,1.31683c0.46725,0.27271 1.04514,0.27271 1.51238,0c0.46725,-0.27271 0.75146,-0.77588 0.74381,-1.31683v-11c0.00582,-0.40562 -0.15288,-0.7963 -0.43991,-1.08296c-0.28703,-0.28666 -0.67792,-0.44486 -1.08353,-0.43852z"
+                            ></path>
+                          </g>
+                        </g>
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -377,39 +426,32 @@
                   <div class="multiselect__main">
                     <div class="multiselect__header">
                       <input
-                        name=""
                         type="text"
                         autocomplete="off"
-                        spellcheck="false"
-                        placeholder="Москва"
+                        readonly="readonly"
+                        value="Москва"
                         tabindex="0"
-                        aria-controls="listbox-null"
-                        class="multiselect__input multiselect__input-selected"
+                        class="input multiselect__input multiselect__input-selected"
                       />
                     </div>
                     <!---->
 
-                    <perfect-scrollbar>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Quas quibusdam recusandae tempore harum dicta
-                      necessitatibus dolore, consequatur expedita voluptatem
-                      facere distinctio nulla hic quidem. Recusandae fugiat
-                      repellendus porro iusto asperiores. Lorem ipsum dolor sit
-                      amet consectetur adipisicing elit. Consectetur corporis
-                      temporibus aut dignissimos voluptatem dolorem distinctio
-                      sunt eaque repudiandae itaque vitae veritatis numquam
-                      earum aliquid, et praesentium deserunt est ad! Lorem ipsum
-                      dolor sit amet consectetur adipisicing elit. Repellendus
-                      enim nostrum tenetur accusantium reprehenderit nisi
-                      inventore quos libero cupiditate dolorem dolorum,
-                      consectetur velit natus perferendis suscipit?
-                      Necessitatibus enim consequatur odio. Lorem ipsum dolor
-                      sit, amet consectetur adipisicing elit. Ut placeat,
-                      veritatis quod assumenda vitae ipsam sed alias? Totam
-                      inventore voluptate explicabo accusantium laboriosam
-                      tempore, nobis, assumenda perspiciatis praesentium
-                      recusandae quo.
-                    </perfect-scrollbar>
+                    <div class="multiselect__list">
+                      <perfect-scrollbar>
+                        <div class="multiselect__item">Tet gorod</div>
+                        <div
+                          class="multiselect__item multiselect__item-selected"
+                        >
+                          Tet gorod
+                        </div>
+                        <div class="multiselect__item">Tet gorod</div>
+                        <div class="multiselect__item">Tet gorod</div>
+                        <div class="multiselect__item">Tet gorod</div>
+                        <div class="multiselect__item">Tet gorod</div>
+                        <div class="multiselect__item">Tet gorod</div>
+                        <div class="multiselect__item">Tet gorod</div>
+                      </perfect-scrollbar>
+                    </div>
                     <!---->
                   </div>
                 </div>
@@ -493,6 +535,10 @@ export default {
   },
 };
 </script>
+
+<style src="./styles/fonts/fonts.css"></style>
+<style src="./styles/normalize.css"></style>
+<style src="./styles/styles.css"></style>
 
 <style>
 .container-fluid {
@@ -784,32 +830,10 @@ export default {
 
 .input:focus {
   border: 1px solid #2dc574;
-  /* outline-color: ; */
   -webkit-transition: border 0.5s ease-out;
   -moz-transition: border 0.5s ease-out;
   -o-transition: border 0.5s ease-out;
   transition: border 0.5s ease-out;
-}
-
-.wrapper {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -moz-box-orient: vertical;
-  -moz-box-direction: normal;
-  -webkit-box-pack: justify;
-  -moz-box-pack: justify;
-  -ms-flex-pack: justify;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  height: 100%;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
 }
 
 .settings-section__info {
@@ -935,7 +959,7 @@ export default {
   margin-top: 2rem;
 }
 
-.multiselect {
+.multiselect__main {
   position: relative;
 }
 
@@ -944,16 +968,16 @@ export default {
 }
 
 .multiselect__input {
+  padding: 0 40px 0 10px;
+  height: 45px;
+  width: 100%;
+  font-family: inherit;
+  font-weight: 700;
   background: #fff;
   border: 1px solid #e1e1e3;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  font-family: inherit;
-  font-weight: 500;
-  height: 45px;
-  padding: 0 40px 0 10px;
-  width: 100%;
 }
 
 .multiselect__header:after,
@@ -991,13 +1015,82 @@ export default {
   width: 15px;
 }
 
+.ps {
+  width: 100%;
+  max-height: 220px;
+  border-radius: 4px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  background-color: #2dc574;
+}
+
+.ps__thumb-y {
+  background-color: #ffffff !important;
+}
+
+.ps__thumb-y:hover {
+  background-color: #29a663 !important;
+  width: 8px !important;
+}
+
+.ps__rail-y {
+  width: 11px !important;
+}
+
+.multiselect__list {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 10;
+  width: 100%;
+}
+
+.multiselect__item {
+  padding: 7px 35px;
+  height: 32px;
+  width: 100%;
+  color: white;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.multiselect__item:hover {
+  padding: 7px 35px;
+  height: 32px;
+  width: 100%;
+  color: white;
+  font-weight: 500;
+  font-size: 1.2rem;
+  background-color: #29a663;
+}
+
+.multiselect__item-selected {
+  background-color: #29a663;
+  font-weight: 600;
+  border-radius: 4px;
+  position: relative;
+}
+
+.multiselect__item-selected:after {
+  content: '';
+  position: absolute;
+  height: 8px;
+  left: 12px;
+  bottom: 13px;
+  width: 15px;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='14' height='11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.492 6.092 4.76 9.333l7.843-7.778' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  color: white;
+}
+
 .checkbox-label__input {
   height: 1px;
-  left: -9999px;
+  /* left: -9999px; */
   opacity: 0;
   overflow: hidden;
   position: absolute;
-  top: -9999px;
+  /* top: -9999px; */
   visibility: hidden;
   width: 1px;
 }
@@ -1067,12 +1160,41 @@ export default {
   width: 1.3rem;
 }
 
+.settings-section__field {
+  position: relative;
+}
+
 .checkbox-label__tooltip-icon.icon {
   fill: #cdcdcd;
   cursor: help;
-  height: 2rem;
+  height: 2.5rem;
+  width: 2.5rem;
   margin-left: 0.5rem;
-  width: 2rem;
+}
+
+.checkbox-label__tooltip {
+  position: absolute;
+  z-index: 1;
+  top: 55%;
+  left: 46.5%;
+  padding: 5px 10px;
+  width: 100%;
+  background: #2dc574;
+  color: #fff;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-radius: 2px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.checkbox-label__main-tooltip:hover .checkbox-label__tooltip {
+  top: 125%;
+  left: 6.5%;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .settings-section__bottom {
@@ -1133,6 +1255,41 @@ export default {
   vertical-align: middle;
 }
 
+.wrapper {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -ms-flex-pack: justify;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+@media (min-width: 400px) {
+  .checkbox-label__tooltip:before {
+    position: absolute;
+    content: '';
+    height: 15px;
+    width: 15px;
+    background: #2dc574;
+    left: 90%;
+    top: -6px;
+    transform: translateX(-50%) rotate(45deg);
+    transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
 @media (min-width: 576px) {
   .settings-section .wide-section__body {
     max-width: 49rem;
@@ -1144,6 +1301,16 @@ export default {
 }
 
 @media (min-width: 768px) {
+  .checkbox-label__main-tooltip:hover .checkbox-label__tooltip {
+    top: 85%;
+    left: 46.6%;
+  }
+
+  .checkbox-label__tooltip:before {
+    left: 50%;
+    top: -6px;
+  }
+
   .main-heading {
     font-size: 3rem;
   }
@@ -1294,12 +1461,8 @@ export default {
   }
 }
 </style>
-
 <style>
-.ps {
-  height: 200px;
+.mb-100 {
+  padding-bottom: 100px;
 }
 </style>
-<style src="./styles/fonts/fonts.css"></style>
-<style src="./styles/normalize.css"></style>
-<style src="./styles/styles.css"></style>
