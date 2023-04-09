@@ -177,10 +177,7 @@
                       >Push</label
                     >
                   </div>
-                  <div class="checkbox-label__main-tooltip">
-                    <div class="checkbox-label__tooltip">
-                      Прямой переход в обьявлении на источнике
-                    </div>
+                  <div id="tippy-push-js">
                     <svg
                       class="checkbox-label__tooltip-icon icon sprite-icons"
                       xmlns="http://www.w3.org/2000/svg"
@@ -365,44 +362,39 @@
                       >На источник
                     </label>
                   </div>
-                  <div>
-                    <div class="checkbox-label__main-tooltip">
-                      <div class="checkbox-label__tooltip">
-                        Прямой переход в обьявлении на источнике
-                      </div>
-                      <svg
-                        class="checkbox-label__tooltip-icon icon sprite-icons"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        viewBox="0,0,256,256"
-                        width="48px"
-                        height="48px"
+                  <div id="tippy-source-js">
+                    <svg
+                      class="checkbox-label__tooltip-icon icon sprite-icons"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      viewBox="0,0,256,256"
+                      width="48px"
+                      height="48px"
+                      fill-rule="nonzero"
+                    >
+                      <g
+                        fill="#cdcdcd"
                         fill-rule="nonzero"
+                        stroke="none"
+                        stroke-width="1"
+                        stroke-linecap="butt"
+                        stroke-linejoin="miter"
+                        stroke-miterlimit="10"
+                        stroke-dasharray=""
+                        stroke-dashoffset="0"
+                        font-family="none"
+                        font-weight="none"
+                        font-size="none"
+                        text-anchor="none"
+                        style="mix-blend-mode: normal"
                       >
-                        <g
-                          fill="#cdcdcd"
-                          fill-rule="nonzero"
-                          stroke="none"
-                          stroke-width="1"
-                          stroke-linecap="butt"
-                          stroke-linejoin="miter"
-                          stroke-miterlimit="10"
-                          stroke-dasharray=""
-                          stroke-dashoffset="0"
-                          font-family="none"
-                          font-weight="none"
-                          font-size="none"
-                          text-anchor="none"
-                          style="mix-blend-mode: normal"
-                        >
-                          <g transform="scale(5.33333,5.33333)">
-                            <path
-                              d="M24,4c-11.02793,0 -20,8.97207 -20,20c0,11.02793 8.97207,20 20,20c11.02793,0 20,-8.97207 20,-20c0,-11.02793 -8.97207,-20 -20,-20zM24,7c9.40662,0 17,7.59339 17,17c0,9.40661 -7.59338,17 -17,17c-9.40661,0 -17,-7.59339 -17,-17c0,-9.40661 7.59339,-17 17,-17zM24,14c-1.10457,0 -2,0.89543 -2,2c0,1.10457 0.89543,2 2,2c1.10457,0 2,-0.89543 2,-2c0,-1.10457 -0.89543,-2 -2,-2zM23.97656,20.97852c-0.82766,0.01293 -1.48843,0.69381 -1.47656,1.52148v11c-0.00765,0.54095 0.27656,1.04412 0.74381,1.31683c0.46725,0.27271 1.04514,0.27271 1.51238,0c0.46725,-0.27271 0.75146,-0.77588 0.74381,-1.31683v-11c0.00582,-0.40562 -0.15288,-0.7963 -0.43991,-1.08296c-0.28703,-0.28666 -0.67792,-0.44486 -1.08353,-0.43852z"
-                            ></path>
-                          </g>
+                        <g transform="scale(5.33333,5.33333)">
+                          <path
+                            d="M24,4c-11.02793,0 -20,8.97207 -20,20c0,11.02793 8.97207,20 20,20c11.02793,0 20,-8.97207 20,-20c0,-11.02793 -8.97207,-20 -20,-20zM24,7c9.40662,0 17,7.59339 17,17c0,9.40661 -7.59338,17 -17,17c-9.40661,0 -17,-7.59339 -17,-17c0,-9.40661 7.59339,-17 17,-17zM24,14c-1.10457,0 -2,0.89543 -2,2c0,1.10457 0.89543,2 2,2c1.10457,0 2,-0.89543 2,-2c0,-1.10457 -0.89543,-2 -2,-2zM23.97656,20.97852c-0.82766,0.01293 -1.48843,0.69381 -1.47656,1.52148v11c-0.00765,0.54095 0.27656,1.04412 0.74381,1.31683c0.46725,0.27271 1.04514,0.27271 1.51238,0c0.46725,-0.27271 0.75146,-0.77588 0.74381,-1.31683v-11c0.00582,-0.40562 -0.15288,-0.7963 -0.43991,-1.08296c-0.28703,-0.28666 -0.67792,-0.44486 -1.08353,-0.43852z"
+                          ></path>
                         </g>
-                      </svg>
-                    </div>
+                      </g>
+                    </svg>
                   </div>
                 </div>
               </div>
@@ -471,15 +463,40 @@
                     <label for="input-58" class="checkbox-label__main">
                       Автоматически переходить к новым объявлениям
                     </label>
-                    <span class="checkbox-label__main-tooltip"
-                      ><svg
-                        content="Лента будет автоматически обновляться 1 раз в 3 секунды"
-                        xmlns="http://www.w3.org/2000/svg"
+                    <div id="tippy-new-ad-js">
+                      <svg
                         class="checkbox-label__tooltip-icon icon sprite-icons"
-                        data-tippy-directive=""
-                        tabindex="0"
-                      ></svg>
-                    </span>
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0,0,256,256"
+                        width="48px"
+                        height="48px"
+                        fill-rule="nonzero"
+                      >
+                        <g
+                          fill="#cdcdcd"
+                          fill-rule="nonzero"
+                          stroke="none"
+                          stroke-width="1"
+                          stroke-linecap="butt"
+                          stroke-linejoin="miter"
+                          stroke-miterlimit="10"
+                          stroke-dasharray=""
+                          stroke-dashoffset="0"
+                          font-family="none"
+                          font-weight="none"
+                          font-size="none"
+                          text-anchor="none"
+                          style="mix-blend-mode: normal"
+                        >
+                          <g transform="scale(5.33333,5.33333)">
+                            <path
+                              d="M24,4c-11.02793,0 -20,8.97207 -20,20c0,11.02793 8.97207,20 20,20c11.02793,0 20,-8.97207 20,-20c0,-11.02793 -8.97207,-20 -20,-20zM24,7c9.40662,0 17,7.59339 17,17c0,9.40661 -7.59338,17 -17,17c-9.40661,0 -17,-7.59339 -17,-17c0,-9.40661 7.59339,-17 17,-17zM24,14c-1.10457,0 -2,0.89543 -2,2c0,1.10457 0.89543,2 2,2c1.10457,0 2,-0.89543 2,-2c0,-1.10457 -0.89543,-2 -2,-2zM23.97656,20.97852c-0.82766,0.01293 -1.48843,0.69381 -1.47656,1.52148v11c-0.00765,0.54095 0.27656,1.04412 0.74381,1.31683c0.46725,0.27271 1.04514,0.27271 1.51238,0c0.46725,-0.27271 0.75146,-0.77588 0.74381,-1.31683v-11c0.00582,-0.40562 -0.15288,-0.7963 -0.43991,-1.08296c-0.28703,-0.28666 -0.67792,-0.44486 -1.08353,-0.43852z"
+                            ></path>
+                          </g>
+                        </g>
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -496,15 +513,40 @@
                     <label for="input-59" class="checkbox-label__main">
                       Включить цвета в ленте
                     </label>
-                    <span class="checkbox-label__main-tooltip"
-                      ><svg
-                        content="Включение зеленого/желтого цвета"
-                        xmlns="http://www.w3.org/2000/svg"
+                    <div id="tippy-color-js">
+                      <svg
                         class="checkbox-label__tooltip-icon icon sprite-icons"
-                        data-tippy-directive=""
-                        tabindex="0"
-                      ></svg>
-                    </span>
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0,0,256,256"
+                        width="48px"
+                        height="48px"
+                        fill-rule="nonzero"
+                      >
+                        <g
+                          fill="#cdcdcd"
+                          fill-rule="nonzero"
+                          stroke="none"
+                          stroke-width="1"
+                          stroke-linecap="butt"
+                          stroke-linejoin="miter"
+                          stroke-miterlimit="10"
+                          stroke-dasharray=""
+                          stroke-dashoffset="0"
+                          font-family="none"
+                          font-weight="none"
+                          font-size="none"
+                          text-anchor="none"
+                          style="mix-blend-mode: normal"
+                        >
+                          <g transform="scale(5.33333,5.33333)">
+                            <path
+                              d="M24,4c-11.02793,0 -20,8.97207 -20,20c0,11.02793 8.97207,20 20,20c11.02793,0 20,-8.97207 20,-20c0,-11.02793 -8.97207,-20 -20,-20zM24,7c9.40662,0 17,7.59339 17,17c0,9.40661 -7.59338,17 -17,17c-9.40661,0 -17,-7.59339 -17,-17c0,-9.40661 7.59339,-17 17,-17zM24,14c-1.10457,0 -2,0.89543 -2,2c0,1.10457 0.89543,2 2,2c1.10457,0 2,-0.89543 2,-2c0,-1.10457 -0.89543,-2 -2,-2zM23.97656,20.97852c-0.82766,0.01293 -1.48843,0.69381 -1.47656,1.52148v11c-0.00765,0.54095 0.27656,1.04412 0.74381,1.31683c0.46725,0.27271 1.04514,0.27271 1.51238,0c0.46725,-0.27271 0.75146,-0.77588 0.74381,-1.31683v-11c0.00582,-0.40562 -0.15288,-0.7963 -0.43991,-1.08296c-0.28703,-0.28666 -0.67792,-0.44486 -1.08353,-0.43852z"
+                            ></path>
+                          </g>
+                        </g>
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -528,10 +570,48 @@
 <script>
 import { PerfectScrollbar } from 'vue2-perfect-scrollbar';
 
+import tippy from 'tippy.js';
+import 'tippy.js/dist/tippy.css';
+import 'tippy.js/dist/svg-arrow.css';
+import { roundArrow } from 'tippy.js';
+
 export default {
   name: 'App',
   components: {
     PerfectScrollbar,
+  },
+  mounted() {
+    tippy('#tippy-push-js', {
+      content: 'Можно установить только в приложении',
+      placement: 'bottom',
+      theme: 'green',
+      delay: [50, 300],
+      arrow: roundArrow,
+    });
+
+    tippy('#tippy-source-js', {
+      content: 'Прямой переход в обьявлении на источнике',
+      placement: 'bottom',
+      theme: 'green',
+      delay: [50, 300],
+      arrow: roundArrow,
+    });
+
+    tippy('#tippy-new-ad-js', {
+      content: 'Лента будет автоматически обновляться 1 раз в 3 секунды',
+      placement: 'bottom',
+      theme: 'green',
+      delay: [50, 300],
+      arrow: roundArrow,
+    });
+
+    tippy('#tippy-color-js', {
+      content: 'Включение зеленого/желтого цвета',
+      placement: 'bottom',
+      theme: 'green',
+      delay: [50, 300],
+      arrow: roundArrow,
+    });
   },
 };
 </script>
@@ -541,6 +621,37 @@ export default {
 <style src="./styles/styles.css"></style>
 
 <style>
+.tippy-box[data-theme~='green'] > .tippy-svg-arrow {
+  fill: #2dc574;
+}
+
+.tippy-box[data-theme~='green'] {
+  background-color: #2dc574;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.tippy-box[data-theme~='green'][data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: #2dc574;
+}
+
+.tippy-box[data-theme~='green'][data-placement^='bottom']
+  > .tippy-arrow::before {
+  border-bottom-color: #2dc574;
+}
+
+.tippy-box[data-theme~='tomato'][data-placement^='left']
+  > .tippy-arrow::before {
+  border-left-color: #2dc574;
+}
+
+.tippy-box[data-theme~='tomato'][data-placement^='right']
+  > .tippy-arrow::before {
+  border-right-color: #2dc574;
+}
+
 .container-fluid {
   margin: 0 auto;
   max-width: 1920px;
@@ -1169,32 +1280,6 @@ export default {
   cursor: help;
   height: 2.5rem;
   width: 2.5rem;
-  margin-left: 0.5rem;
-}
-
-.checkbox-label__tooltip {
-  position: absolute;
-  z-index: 1;
-  top: 55%;
-  left: 46.5%;
-  padding: 5px 10px;
-  width: 100%;
-  background: #2dc574;
-  color: #fff;
-  text-align: center;
-  font-size: 1.3rem;
-  font-weight: 600;
-  border-radius: 2px;
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.checkbox-label__main-tooltip:hover .checkbox-label__tooltip {
-  top: 125%;
-  left: 6.5%;
-  opacity: 1;
-  pointer-events: auto;
 }
 
 .settings-section__bottom {
@@ -1255,41 +1340,6 @@ export default {
   vertical-align: middle;
 }
 
-.wrapper {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -moz-box-orient: vertical;
-  -moz-box-direction: normal;
-  -webkit-box-pack: justify;
-  -moz-box-pack: justify;
-  -ms-flex-pack: justify;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  height: 100%;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
-}
-
-@media (min-width: 400px) {
-  .checkbox-label__tooltip:before {
-    position: absolute;
-    content: '';
-    height: 15px;
-    width: 15px;
-    background: #2dc574;
-    left: 90%;
-    top: -6px;
-    transform: translateX(-50%) rotate(45deg);
-    transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-}
-
 @media (min-width: 576px) {
   .settings-section .wide-section__body {
     max-width: 49rem;
@@ -1301,16 +1351,6 @@ export default {
 }
 
 @media (min-width: 768px) {
-  .checkbox-label__main-tooltip:hover .checkbox-label__tooltip {
-    top: 85%;
-    left: 46.6%;
-  }
-
-  .checkbox-label__tooltip:before {
-    left: 50%;
-    top: -6px;
-  }
-
   .main-heading {
     font-size: 3rem;
   }
