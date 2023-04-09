@@ -1,130 +1,10 @@
 <template>
   <div id="app">
-    <div class="page-intro">
-      <div class="container-fluid">
-        <div class="page-intro__header">
-          <h1 class="page-intro__heading main-heading"><p>Настройки</p></h1>
-        </div>
-      </div>
-    </div>
-
+    <Header />
     <div class="container-fluid padding-top-2 mb-100">
       <div class="settings-section">
-        <div class="wide-section settings-section__subsection">
-          <div class="wide-section__header is-flex">
-            <div class="wide-section__heading">Звонок через SIP</div>
-            <div
-              class="switcher-label settings-section__switcher switcher-label--thin"
-            >
-              <input
-                id="input51"
-                type="checkbox"
-                class="switcher-label__input"
-              />
-              <label for="input51" class="switcher-label__main"></label>
-            </div>
-          </div>
-          <div class="wide-section__body">
-            <div class="post-entry">
-              <p class="is-muted">
-                Включите эту функцию чтобы Авито и другие площадки не
-                блокировали ваш аккаунт. Будет выглядеть так, будто звонки
-                совершаются с разных номеров.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="wide-section settings-section__subsection">
-          <div class="wide-section__header is-mobile-hidden">
-            <div class="wide-section__heading">Учётная запись</div>
-          </div>
-          <div class="wide-section__body">
-            <div class="settings-section__fields">
-              <div
-                class="input-field settings-section__field"
-                readonly="readonly"
-                value="Частное лицо"
-              >
-                <label class="input-field__label caption">Компания</label>
-                <div class="input-field__main">
-                  <input
-                    type="text"
-                    name="text-field"
-                    readonly="readonly"
-                    class="input-field__input input"
-                  />
-                  <div class="extra-field__currency"></div>
-                </div>
-              </div>
-              <div
-                class="input-field settings-section__field"
-                readonly="readonly"
-                value="9961235606"
-              >
-                <label class="input-field__label caption">Логин</label>
-                <div class="input-field__main">
-                  <input
-                    type="text"
-                    name="text-field"
-                    placeholder=""
-                    readonly="readonly"
-                    class="input-field__input input"
-                  />
-                  <div class="extra-field__currency"></div>
-                </div>
-              </div>
-              <div
-                class="input-field settings-section__field"
-                value="79961235606"
-              >
-                <label class="input-field__label caption">Номер телефона</label>
-                <div class="input-field__main">
-                  <!---->
-                  <input
-                    type="text"
-                    name="text-field"
-                    placeholder=""
-                    class="input-field__input input"
-                  />
-                  <div class="extra-field__currency"></div>
-                  <!---->
-                </div>
-              </div>
-              <div
-                class="input-field settings-section__field"
-                value="Анонимус-2"
-              >
-                <label class="input-field__label caption">Имя</label>
-                <div class="input-field__main">
-                  <!---->
-                  <input
-                    type="text"
-                    name="text-field"
-                    placeholder=""
-                    class="input-field__input input"
-                  />
-                  <div class="extra-field__currency"></div>
-                  <!---->
-                </div>
-              </div>
-              <div class="input-field settings-section__field" value="">
-                <label class="input-field__label caption">Фамилия</label>
-                <div class="input-field__main">
-                  <!---->
-                  <input
-                    type="text"
-                    name="text-field"
-                    placeholder=""
-                    class="input-field__input input"
-                  />
-                  <div class="extra-field__currency"></div>
-                  <small class="settings-section__info">* Не обязательно</small>
-                  <!---->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <call-sip />
+        <Account />
         <div class="wide-section settings-section__subsection">
           <div class="wide-section__header is-mobile-hidden">
             <div class="wide-section__heading">
@@ -568,6 +448,9 @@
 </template>
 
 <script>
+import Header from './components/Header.vue';
+import CallSip from './components/CallSip.vue';
+import Account from './components/Account.vue';
 import { PerfectScrollbar } from 'vue2-perfect-scrollbar';
 
 import tippy from 'tippy.js';
@@ -579,6 +462,9 @@ export default {
   name: 'App',
   components: {
     PerfectScrollbar,
+    Header,
+    CallSip,
+    Account,
   },
   mounted() {
     tippy('#tippy-push-js', {
@@ -616,69 +502,35 @@ export default {
 };
 </script>
 
-<style src="./styles/fonts/fonts.css"></style>
+<style scoped src="./styles/fonts/fonts.css"></style>
 <style src="./styles/normalize.css"></style>
-<style src="./styles/styles.css"></style>
+<style src="./styles/allBaseStyle.css"></style>
+<style src="./styles/tippy/tippy.css"></style>
 
 <style>
-.tippy-box[data-theme~='green'] > .tippy-svg-arrow {
-  fill: #2dc574;
-}
-
-.tippy-box[data-theme~='green'] {
-  background-color: #2dc574;
-  color: #fff;
-  font-weight: 600;
-  font-size: 1.2rem;
-  text-align: center;
-}
-
-.tippy-box[data-theme~='green'][data-placement^='top'] > .tippy-arrow::before {
-  border-top-color: #2dc574;
-}
-
-.tippy-box[data-theme~='green'][data-placement^='bottom']
-  > .tippy-arrow::before {
-  border-bottom-color: #2dc574;
-}
-
-.tippy-box[data-theme~='tomato'][data-placement^='left']
-  > .tippy-arrow::before {
-  border-left-color: #2dc574;
-}
-
-.tippy-box[data-theme~='tomato'][data-placement^='right']
-  > .tippy-arrow::before {
-  border-right-color: #2dc574;
-}
-
-.container-fluid {
-  margin: 0 auto;
-  max-width: 1920px;
-  padding: 0 1.5rem;
-}
-
 .padding-top-2 {
   padding-top: 2rem;
 }
 
-/* Header  */
-
-.page-intro {
-  background: #f9f9fc;
-  padding: 0 0 0.1rem;
-  padding-top: 2rem;
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  height: 2.5rem;
+  width: 2.5rem;
 }
 
-.main-heading {
-  color: #000;
+.caption {
+  cursor: pointer;
   font-size: 1.5rem;
   font-weight: 600;
-  line-height: 1.25;
-  margin: 1.5rem 0;
+  margin-bottom: 0.5rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-/*  body */
+/* ***settings-section***  */
 
 .settings-section {
   margin-bottom: 5rem;
@@ -701,16 +553,16 @@ export default {
 }
 
 .settings-section .wide-section__header.is-flex {
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
 }
 
 .settings-section .wide-section__heading {
@@ -718,159 +570,9 @@ export default {
 }
 
 .wide-section__heading {
+  margin-bottom: 2.5rem;
   font-size: 1.8rem;
   font-weight: 600;
-  margin-bottom: 2.5rem;
-}
-
-.settings-section__switcher {
-  margin-left: 1rem;
-}
-
-.switcher-label__input {
-  height: 1px;
-  left: -9999px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  top: -9999px;
-  visibility: hidden;
-  width: 1px;
-}
-
-.switcher-label--thin .switcher-label__main {
-  min-width: 3.5rem;
-  padding-left: 4rem;
-}
-
-.switcher-label--thin .switcher-label__input + label:before {
-  background: none;
-  border: 0.2rem solid #bababa;
-}
-
-.switcher-label--thin .switcher-label__main:before {
-  height: 2rem;
-  min-width: 3.5rem;
-  width: 3.5rem;
-}
-
-.switcher-label__main:before {
-  background: #a3a3a3;
-  -webkit-border-radius: 12px;
-  -moz-border-radius: 12px;
-  border-radius: 12px;
-  width: 5rem;
-}
-
-.switcher-label__main {
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  color: #000;
-  cursor: pointer;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 1.2rem;
-  font-weight: 500;
-  line-height: 1.2;
-  margin: 0;
-  min-height: 2.5rem;
-  min-width: 5rem;
-  padding: 0 0 0 5.5rem;
-  position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.switcher-label__main:before {
-  background: #a3a3a3;
-  -webkit-border-radius: 12px;
-  -moz-border-radius: 12px;
-  border-radius: 12px;
-  width: 5rem;
-}
-
-.switcher-label--thin .switcher-label__input:checked + label:before {
-  border-color: #2dc574;
-}
-
-.switcher-label--thin .switcher-label__main:after {
-  background: #bababa;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  height: 1.9rem;
-  top: 0.3rem;
-  width: 1.9rem;
-}
-
-.switcher-label__main:after {
-  background: #f1f1f1;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.24);
-  -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.24);
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.24);
-  top: 0;
-  width: 2.5rem;
-}
-
-.switcher-label__input:checked + label:after {
-  background: #2dc574;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  left: 2.5rem;
-}
-
-.switcher-label--thin .switcher-label__input:checked + label:after {
-  left: 1.6rem;
-}
-
-.switcher-label__main:after,
-.switcher-label__main:before {
-  content: '';
-  height: 2.5rem;
-  left: 0;
-  position: absolute;
-  -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
-.settings-section__current-param-edit-icon {
-  fill: currentColor;
-  height: 2.2rem;
-  margin-left: 0.5rem;
-  -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
-  width: 2.2rem;
-}
-
-.icon {
-  display: inline-block;
-  height: 2.5rem;
-  vertical-align: middle;
-  width: 2.5rem;
-}
-
-.wide-section__body {
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
 }
 
 .settings-section .post-entry {
@@ -882,69 +584,23 @@ export default {
   color: #686869;
 }
 
+.settings-section .post-entry + .settings-section__fields {
+  margin-top: 2rem;
+}
+
 .settings-section__field:not(:last-child) {
   margin-bottom: 2rem;
 }
 
-.settings-section__field .input-field__label {
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-
-.caption {
-  cursor: pointer;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.input-field__main {
-  position: relative;
-}
-
-.settings-section .input {
-  font-size: 1.4rem;
-  font-weight: 500;
-  padding: 0.8rem 1rem;
-}
-
-.input,
-.textarea {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: #fff;
-  border: 0.1rem solid #e1e1e3;
-  -webkit-border-radius: 0.3rem;
-  -moz-border-radius: 0.3rem;
-  border-radius: 0.3rem;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  color: #222;
-  font-family: Montserrat, Helvetica, Arial, sans-serif;
-  font-size: 1.4rem;
-  font-weight: 500;
-  line-height: 1.1;
-  outline: none;
-  padding: 1.4rem 1.3rem;
+.settings-section__current-param-edit-icon {
+  margin-left: 0.5rem;
+  height: 2.2rem;
+  width: 2.2rem;
+  fill: currentColor;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
-  width: 100%;
-}
-
-.input:focus {
-  border: 1px solid #2dc574;
-  -webkit-transition: border 0.5s ease-out;
-  -moz-transition: border 0.5s ease-out;
-  -o-transition: border 0.5s ease-out;
-  transition: border 0.5s ease-out;
 }
 
 .settings-section__info {
@@ -959,16 +615,16 @@ export default {
 }
 
 .settings-section__field.is-flex {
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
 }
 
 .settings-section__field:not(:last-child) {
@@ -983,15 +639,17 @@ export default {
   justify-content: space-between;
 }
 
+/* *** RADIO ***  */
+
 .radio-label__input {
-  height: 1px;
-  left: -9999px;
-  opacity: 0;
-  overflow: hidden;
   position: absolute;
-  top: -9999px;
+  overflow: hidden;
   visibility: hidden;
+  top: -9999px;
+  left: -9999px;
+  height: 1px;
   width: 1px;
+  opacity: 0;
 }
 
 .settings-section__field .radio-label__main {
@@ -999,57 +657,57 @@ export default {
 }
 
 .radio-label__main {
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  color: #000;
-  cursor: pointer;
+  position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 1.2rem;
-  font-weight: 500;
-  height: 100%;
-  line-height: 1.2;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
   margin: 0;
+  padding: 0 0 0 2.5rem;
+  height: 100%;
   min-height: 2rem;
   min-width: 32rem;
-  padding: 0 0 0 2.5rem;
-  position: relative;
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.2;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  cursor: pointer;
 }
 
 .radio-label__main:after,
 .radio-label__main:before {
+  position: absolute;
+  content: '';
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  content: '';
-  position: absolute;
 }
 
 .radio-label__main:before {
-  background: #fff;
-  border: 1px solid #2dc574;
-  height: 18px;
   left: 0;
   top: 0;
+  height: 18px;
   width: 18px;
+  border: 1px solid #2dc574;
+  background: #fff;
 }
 
 .radio-label__main:after {
-  background-color: transparent;
   height: 10px;
+  width: 10px;
   left: 4px;
   top: 4px;
-  width: 10px;
+  background-color: transparent;
 }
 
 .radio-label__input:checked + .radio-label__main:before {
@@ -1066,9 +724,7 @@ export default {
   text-decoration: underline;
 }
 
-.settings-section .post-entry + .settings-section__fields {
-  margin-top: 2rem;
-}
+/*  *** MULTISELECT *** */
 
 .multiselect__main {
   position: relative;
@@ -1082,13 +738,13 @@ export default {
   padding: 0 40px 0 10px;
   height: 45px;
   width: 100%;
-  font-family: inherit;
-  font-weight: 700;
-  background: #fff;
   border: 1px solid #e1e1e3;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+  font-family: inherit;
+  font-weight: 700;
+  background: #fff;
 }
 
 .multiselect__header:after,
@@ -1100,10 +756,10 @@ export default {
 }
 
 .multiselect.is-sm .multiselect__header:after {
-  background-size: 10px;
-  right: 11px;
   top: 11px;
+  right: 11px;
   width: 10px;
+  background-size: 10px;
 }
 
 .multiselect__header:after,
@@ -1115,44 +771,31 @@ export default {
 }
 
 .multiselect__header:after {
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='15' height='8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m.842.99 6.428 6 6.429-6' stroke='%232DC574' stroke-width='1.7' stroke-linejoin='round'/%3E%3C/svg%3E");
+  position: absolute;
+  content: '';
+  top: 18px;
+  right: 20px;
+  height: 8px;
+  width: 15px;
   background-position: 50%;
   background-repeat: no-repeat;
-  content: '';
-  height: 8px;
-  position: absolute;
-  right: 20px;
-  top: 18px;
-  width: 15px;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='15' height='8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m.842.99 6.428 6 6.429-6' stroke='%232DC574' stroke-width='1.7' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 
 .ps {
-  width: 100%;
   max-height: 220px;
+  width: 100%;
   border-radius: 4px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   background-color: #2dc574;
 }
 
-.ps__thumb-y {
-  background-color: #ffffff !important;
-}
-
-.ps__thumb-y:hover {
-  background-color: #29a663 !important;
-  width: 8px !important;
-}
-
-.ps__rail-y {
-  width: 11px !important;
-}
-
 .multiselect__list {
   position: absolute;
-  right: 0;
-  top: 100%;
   z-index: 10;
+  top: 100%;
+  right: 0;
   width: 100%;
 }
 
@@ -1176,33 +819,50 @@ export default {
 }
 
 .multiselect__item-selected {
-  background-color: #29a663;
-  font-weight: 600;
-  border-radius: 4px;
   position: relative;
+  border-radius: 4px;
+  font-weight: 600;
+  background-color: #29a663;
 }
 
 .multiselect__item-selected:after {
   content: '';
   position: absolute;
-  height: 8px;
   left: 12px;
   bottom: 13px;
+  height: 8px;
   width: 15px;
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='14' height='11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.492 6.092 4.76 9.333l7.843-7.778' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E");
+  color: white;
   background-position: 50%;
   background-repeat: no-repeat;
-  color: white;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='14' height='11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.492 6.092 4.76 9.333l7.843-7.778' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E");
 }
 
+/* *** PerfectScrollbar *** */
+
+.ps__thumb-y {
+  background-color: #ffffff !important;
+}
+
+.ps__thumb-y:hover {
+  background-color: #29a663 !important;
+  width: 8px !important;
+}
+
+.ps__rail-y {
+  width: 11px !important;
+}
+
+/* ***  CHECKBOX-label ***  */
+
 .checkbox-label__input {
-  height: 1px;
-  /* left: -9999px; */
   opacity: 0;
-  overflow: hidden;
   position: absolute;
-  /* top: -9999px; */
+  overflow: hidden;
   visibility: hidden;
+  top: -9999px;
+  left: -9999px;
+  height: 1px;
   width: 1px;
 }
 
@@ -1211,76 +871,76 @@ export default {
 }
 
 .checkbox-label__main {
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  cursor: pointer;
+  position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
   font-size: 1.2rem;
   font-weight: 500;
   line-height: 1.2;
   margin: 0;
+  padding: 0 0 0 2.5rem;
   min-height: 2rem;
   min-width: 42rem;
-  padding: 0 0 0 2.5rem;
-  position: relative;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none;
   width: 100%;
+  user-select: none;
+  cursor: pointer;
 }
 
 .checkbox-label__main:before {
+  position: absolute;
+  content: '';
+  top: 0.1rem;
+  left: 0;
+  height: 1.8rem;
+  width: 1.8rem;
   border: 1px solid #2dc574;
   -webkit-border-radius: 0.2rem;
   -moz-border-radius: 0.2rem;
   border-radius: 0.2rem;
-  content: '';
-  height: 1.8rem;
-  left: 0;
-  position: absolute;
-  top: 0.1rem;
-  width: 1.8rem;
 }
 
 .checkbox-label__input:checked + .checkbox-label__main:before {
+  position: absolute;
+  content: '';
   background-color: #2dc574;
   border-color: #2dc574;
-  content: '';
-  position: absolute;
 }
 
 .checkbox-label__input:checked + .checkbox-label__main:after {
+  position: absolute;
+  content: '';
+  width: 1.3rem;
+  top: 0.3rem;
+  left: 0.2rem;
+  height: 1.3rem;
+  color: #fff;
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='14' height='11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.492 6.092 4.76 9.333l7.843-7.778' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: contain;
-  color: #fff;
-  content: '';
-  height: 1.3rem;
-  left: 0.2rem;
-  position: absolute;
-  top: 0.3rem;
-  width: 1.3rem;
 }
 
-.settings-section__field {
-  position: relative;
-}
+/* ***  INFO ICON ***  */
 
 .checkbox-label__tooltip-icon.icon {
+  width: 2.5rem;
+  height: 2.5rem;
   fill: #cdcdcd;
   cursor: help;
-  height: 2.5rem;
-  width: 2.5rem;
 }
+
+/* *** SAVE BUTTON ***   */
 
 .settings-section__bottom {
   border-top: 0.1rem solid #e1e1e3;
@@ -1340,6 +1000,8 @@ export default {
   vertical-align: middle;
 }
 
+/*  *** min-width: 576px ***  */
+
 @media (min-width: 576px) {
   .settings-section .wide-section__body {
     max-width: 49rem;
@@ -1350,11 +1012,10 @@ export default {
   }
 }
 
-@media (min-width: 768px) {
-  .main-heading {
-    font-size: 3rem;
-  }
+/*  *** min-width: 768px ***  */
 
+@media (min-width: 768px) {
+  /* settings-section */
   .settings-section {
     margin-bottom: 8rem;
   }
@@ -1448,10 +1109,6 @@ export default {
     display: none;
   }
 
-  .is-desktop-hidden {
-    display: none !important;
-  }
-
   .settings-section__notifications .settings-section__field:not(:last-child) {
     border-bottom: 0.1rem solid #e1e1e3;
     margin-bottom: 1.5rem;
@@ -1493,15 +1150,20 @@ export default {
     margin-right: 2.5rem;
     margin-top: 0.4rem;
   }
+
+  .is-desktop-hidden {
+    display: none !important;
+  }
 }
+
+/* *** min-width: 1200px *** */
 
 @media (min-width: 1200px) {
   .settings-section {
     margin-bottom: 12rem;
   }
 }
-</style>
-<style>
+
 .mb-100 {
   padding-bottom: 100px;
 }

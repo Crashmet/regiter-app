@@ -138,11 +138,17 @@ html {
 @media (min-width: 768px){
   html {
     font-size: 50%;
-}
+  }
 }
 
 @media (min-width: 992px){
   html {
     font-size: 62.5%;
+  }
 }
+
+.container-fluid {
+  margin: 0 auto;
+  max-width: 1920px;
+  padding: 0 1.5rem;
 }
