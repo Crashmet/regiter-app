@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: 'CallSip',
+  name: 'SettingCallSip',
 };
 </script>
 

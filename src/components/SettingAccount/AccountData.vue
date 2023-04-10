@@ -88,7 +88,7 @@
 
 <script>
 export default {
-  name: 'Account',
+  name: 'AccountData',
 };
 </script>
 
@@ -97,7 +97,7 @@ export default {
 
 .settings-section__field .input-field__label {
   font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .input-field__main {
@@ -107,7 +107,7 @@ export default {
 .settings-section .input {
   padding: 0.8rem 1rem;
   font-size: 1.4rem;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .input,
