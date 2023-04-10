@@ -218,7 +218,7 @@ export default {
   name: 'SettingNotifications',
   data() {
     return {
-      notify: null,
+      notify: 1,
 
       isInputEmail: false,
       isInputTg: false,

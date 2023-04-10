@@ -7,6 +7,7 @@
       <div class="settings-section__fields">
         <div class="settings-section__field">
           <div
+            @click="handlerOpenSelectList"
             tabindex="0"
             role="combobox"
             aria-owns="listbox-null"
@@ -16,28 +17,26 @@
             <div class="multiselect__main">
               <div class="multiselect__header">
                 <input
+                  v-model="cityInput"
                   type="text"
                   autocomplete="off"
                   readonly="readonly"
-                  value="Москва"
                   tabindex="0"
                   class="input multiselect__input multiselect__input-selected"
                 />
               </div>
               <!---->
-
-              <div class="multiselect__list">
+              <div class="multiselect__list" v-if="isOpenSelectList">
                 <perfect-scrollbar>
-                  <div class="multiselect__item">Tet gorod</div>
-                  <div class="multiselect__item multiselect__item-selected">
-                    Tet gorod
+                  <div
+                    @click="handlerSelect(city.serverName)"
+                    class="multiselect__item"
+                    :class="[city.select ? 'multiselect__item-selected' : '']"
+                    v-for="city in citys"
+                    :key="city.name"
+                  >
+                    {{ city.name }}
                   </div>
-                  <div class="multiselect__item">Tet gorod</div>
-                  <div class="multiselect__item">Tet gorod</div>
-                  <div class="multiselect__item">Tet gorod</div>
-                  <div class="multiselect__item">Tet gorod</div>
-                  <div class="multiselect__item">Tet gorod</div>
-                  <div class="multiselect__item">Tet gorod</div>
                 </perfect-scrollbar>
               </div>
               <!---->
@@ -48,13 +47,13 @@
 
       <div class="settings-section__fields" style="margin-top: 2.5rem">
         <div class="settings-section__field">
-          <div class="checkbox-label has-tooltip" value="true">
+          <div class="checkbox-label has-tooltip">
             <div style="display: flex">
               <input
+                v-model="isLockLentaUpdate"
                 id="input-58"
                 type="checkbox"
                 class="checkbox-label__input"
-                value="true"
               />
               <label for="input-58" class="checkbox-label__main">
                 Автоматически переходить к новым объявлениям
@@ -101,6 +100,7 @@
           <div class="checkbox-label has-tooltip">
             <div style="display: flex">
               <input
+                v-model="isColorLenta"
                 id="input-59"
                 type="checkbox"
                 class="checkbox-label__input"
@@ -153,6 +153,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import SaveButton from '../UI/SaveButton.vue';
 
 import { PerfectScrollbar } from 'vue2-perfect-scrollbar';
@@ -167,7 +168,29 @@ export default {
     PerfectScrollbar,
     SaveButton,
   },
+  data() {
+    return {
+      citys: [
+        { name: 'Калининград', select: false, serverName: 'Kaliningrad' },
+        { name: 'Москва', select: true, serverName: 'Moscow' },
+        { name: 'Самара', select: false, serverName: 'Samara' },
+        { name: 'Екатеринбург', select: false, serverName: 'Ekaterinburg' },
+        { name: 'Омск', select: false, serverName: 'Omsk' },
+        { name: 'Красноярск', select: false, serverName: 'Krasnoyarsk' },
+        { name: 'Иркутск', select: false, serverName: 'Irkutsk' },
+        { name: 'Якутск', select: false, serverName: 'Yakutsk' },
+        { name: 'Владивосток', select: false, serverName: 'Vladivostok' },
+        { name: 'Магадан', select: false, serverName: 'Magadan' },
+        { name: 'Камчатка', select: false, serverName: 'Kamchatka' },
+      ],
 
+      isOpenSelectList: false,
+
+      cityInput: '',
+      isLockLentaUpdate: false,
+      isColorLenta: true,
+    };
+  },
   mounted() {
     tippy('#tippy-new-ad-js', {
       content: 'Лента будет автоматически обновляться 1 раз в 3 секунды',
@@ -184,6 +207,36 @@ export default {
       delay: [50, 300],
       arrow: roundArrow,
     });
+  },
+
+  computed: {
+    ...mapGetters('settingsStore', ['dataUser']),
+  },
+
+  methods: {
+    handlerOpenSelectList() {
+      this.isOpenSelectList = !this.isOpenSelectList;
+    },
+
+    handlerSelect(city) {
+      this.citys.forEach((el) => {
+        el.select = false;
+        if (el.serverName === city) {
+          el.select = true;
+          this.cityInput = el.name;
+        }
+      });
+    },
+  },
+
+  watch: {
+    dataUser() {
+      let city = this.dataUser.timezonestring;
+      this.handlerSelect(city);
+
+      this.isLockLentaUpdate = this.dataUser.locklentaupdate;
+      this.isColorLenta = this.dataUser.colorlenta;
+    },
   },
 };
 </script>

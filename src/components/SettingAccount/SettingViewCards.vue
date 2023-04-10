@@ -15,6 +15,7 @@
           <div class="settings-section__field is-flex">
             <div class="radio-label settings-section__radio">
               <input
+                v-model="sendMethod"
                 id="is-notification-card"
                 value="0"
                 type="radio"
@@ -30,6 +31,7 @@
           <div class="settings-section__field is-flex">
             <div class="radio-label settings-section__radio">
               <input
+                v-model="sendMethod"
                 id="is-notification-page"
                 value="1"
                 type="radio"
@@ -45,6 +47,7 @@
           <div class="settings-section__field is-flex">
             <div class="radio-label settings-section__radio">
               <input
+                v-model="sendMethod"
                 id="is-notification-source"
                 value="2"
                 type="radio"
@@ -98,6 +101,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 import tippy from 'tippy.js';
 import { roundArrow } from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
@@ -105,6 +110,11 @@ import 'tippy.js/dist/svg-arrow.css';
 
 export default {
   name: 'SettingViewCards',
+  data() {
+    return {
+      sendMethod: 0,
+    };
+  },
   mounted() {
     tippy('#tippy-source-js', {
       content: 'Прямой переход в обьявлении на источнике',
@@ -113,6 +123,14 @@ export default {
       delay: [50, 300],
       arrow: roundArrow,
     });
+  },
+  computed: {
+    ...mapGetters('settingsStore', ['dataUser']),
+  },
+  watch: {
+    dataUser() {
+      this.sendMethod = this.dataUser.sendMethod;
+    },
   },
 };
 </script>

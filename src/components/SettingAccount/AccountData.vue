@@ -83,7 +83,11 @@ import { mapGetters } from 'vuex';
 export default {
   name: 'AccountData',
   data() {
-    return {};
+    return {
+      phone: '',
+      firstName: '',
+      lastName: '',
+    };
   },
   computed: {
     ...mapGetters('settingsStore', ['dataUser']),
@@ -95,17 +99,14 @@ export default {
     login() {
       return this.dataUser.login;
     },
+  },
+  watch: {
+    dataUser() {
+      this.phone = this.dataUser.phone;
 
-    phone() {
-      return this.dataUser.phone;
-    },
+      this.firstName = this.dataUser.firstName;
 
-    firstName() {
-      return this.dataUser.firstName;
-    },
-
-    lastName() {
-      return this.dataUser.lastName;
+      this.lastName = this.dataUser.lastName;
     },
   },
 };
