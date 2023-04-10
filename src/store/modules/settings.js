@@ -4,11 +4,16 @@ import Vue from 'vue';
 const settingsStore = {
   namespaced: true,
   state: {
-    token: '123',
+    userId: '',
+    token: '',
 
     dataUser: {},
   },
   mutations: {
+    SET_USER_ID(state, responseUserId) {
+      Vue.set(state, 'userId', responseUserId);
+    },
+
     SET_TOKEN(state, responseToken) {
       Vue.set(state, 'token', responseToken);
     },
@@ -42,6 +47,7 @@ const settingsStore = {
         )
         .then(function (response) {
           commit('SET_TOKEN', response.data.token);
+          commit('SET_USER_ID', response.data.user.id);
         })
         .catch(function (error) {
           console.log(error);
@@ -50,7 +56,7 @@ const settingsStore = {
 
     async fetchSettingsList({ state, commit }) {
       await axios
-        .get('/user', {
+        .get(`/user/${state.userId}`, {
           headers: {
             'Content-Type': 'application/json',
             Accept: 'application/json',
