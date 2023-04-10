@@ -1,6 +1,9 @@
 <template>
   <div class="settings-section__bottom">
-    <button class="settings-section__btn block btn btn--block btn--primary">
+    <button
+      @click="handlerSaveUserData"
+      class="settings-section__btn block btn btn--block btn--primary"
+    >
       <!---->
       <span class="btn__text"> Сохранить </span>
       <!---->
@@ -11,6 +14,11 @@
 <script>
 export default {
   name: 'SaveButton',
+  methods: {
+    handlerSaveUserData() {
+      this.$emit('handlerSaveUserData');
+    },
+  },
 };
 </script>
 

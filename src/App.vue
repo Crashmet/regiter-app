@@ -7,7 +7,7 @@
         <account-data />
         <setting-notifications />
         <setting-view-cards />
-        <others-settings />
+        <others-settings @handlerSaveUserData="handlerSaveUserData" />
       </div>
     </div>
   </div>
@@ -41,6 +41,10 @@ export default {
   },
   methods: {
     ...mapActions('settingsStore', ['fetchLoginUser', 'fetchSettingsList']),
+
+    handlerSaveUserData() {
+      console.log(1231);
+    },
   },
   watch: {
     token() {

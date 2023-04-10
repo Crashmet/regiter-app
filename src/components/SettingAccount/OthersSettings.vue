@@ -147,7 +147,7 @@
           </div>
         </div>
       </div>
-      <save-button />
+      <save-button @handlerSaveUserData="handlerSaveUserData" />
     </div>
   </div>
 </template>
@@ -214,6 +214,10 @@ export default {
   },
 
   methods: {
+    handlerSaveUserData() {
+      this.$emit('handlerSaveUserData');
+    },
+
     handlerOpenSelectList() {
       this.isOpenSelectList = !this.isOpenSelectList;
     },
