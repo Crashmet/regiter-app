@@ -21,6 +21,7 @@
           <div class="settings-section__field is-flex">
             <div class="radio-label settings-section__radio">
               <input
+                v-model="notify"
                 id="is-notification-none"
                 value="-1"
                 type="radio"
@@ -36,6 +37,7 @@
           <div class="settings-section__field is-flex">
             <div class="radio-label settings-section__radio">
               <input
+                v-model="notify"
                 id="is-notification-push"
                 value="0"
                 type="radio"
@@ -85,6 +87,7 @@
           <div class="settings-section__field is-flex">
             <div class="radio-label settings-section__radio">
               <input
+                v-model="notify"
                 id="is-notification-email"
                 value="2"
                 type="radio"
@@ -98,34 +101,50 @@
             </div>
             <div class="settings-section__current-param">
               <span class="settings-section__current-param-text"></span>
-              <span class="settings-section__current-param-edit"
-                ><svg
-                  width="17"
-                  height="17"
-                  viewBox="0 0 17 17"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon settings-section__current-param-edit-icon"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M9.22081 3.77446C9.63603 3.35924 10.1992 3.12598 10.7864 3.12598C12.0092 3.12598 13.0005 4.11725 13.0005 5.34004C13.0005 5.92725 12.7672 6.49041 12.352 6.90563L9.74075 9.51684C8.54147 10.7161 7.0388 11.5669 5.39341 11.9783L4.88871 12.1044C4.36527 12.2353 3.89113 11.7612 4.02199 11.2377L4.14816 10.733C4.55951 9.08763 5.41031 7.58496 6.60959 6.38568L9.22081 3.77446ZM10.7864 4.12598C10.4644 4.12598 10.1556 4.25389 9.92791 4.48157L9.52581 4.88367C9.46599 5.22738 9.63626 5.69076 10.036 6.09047C10.4357 6.49017 10.8991 6.66044 11.2428 6.60062L11.6449 6.19852C11.8725 5.97084 12.0005 5.66203 12.0005 5.34004C12.0005 4.66953 11.4569 4.12598 10.7864 4.12598ZM10.3671 7.47631C9.97046 7.32906 9.60994 7.07865 9.32886 6.79757C9.04778 6.51649 8.79738 6.15598 8.65012 5.75936L7.3167 7.09279C6.24558 8.16391 5.4857 9.506 5.11831 10.9756L5.10745 11.019L5.15087 11.0081C6.62044 10.6407 7.96253 9.88086 9.03365 8.80974L10.3671 7.47631Z"
-                    fill="#2DC574"
-                  ></path>
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M3.33203 14.293C3.33203 14.0168 3.55589 13.793 3.83203 13.793H13.1654C13.4415 13.793 13.6654 14.0168 13.6654 14.293C13.6654 14.5691 13.4415 14.793 13.1654 14.793H3.83203C3.55589 14.793 3.33203 14.5691 3.33203 14.293Z"
-                    fill="#2DC574"
-                  ></path>
-                </svg>
-              </span>
+              <template v-if="isInputEmail">
+                <div class="input-field__main">
+                  <input
+                    v-model="email"
+                    type="text"
+                    name="text-field"
+                    placeholder=""
+                    class="input-field__input input"
+                  />
+                </div>
+              </template>
+              <template v-else>
+                <span
+                  @click="handlerInputEmail"
+                  class="settings-section__current-param-edit"
+                  ><svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 17 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon settings-section__current-param-edit-icon"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M9.22081 3.77446C9.63603 3.35924 10.1992 3.12598 10.7864 3.12598C12.0092 3.12598 13.0005 4.11725 13.0005 5.34004C13.0005 5.92725 12.7672 6.49041 12.352 6.90563L9.74075 9.51684C8.54147 10.7161 7.0388 11.5669 5.39341 11.9783L4.88871 12.1044C4.36527 12.2353 3.89113 11.7612 4.02199 11.2377L4.14816 10.733C4.55951 9.08763 5.41031 7.58496 6.60959 6.38568L9.22081 3.77446ZM10.7864 4.12598C10.4644 4.12598 10.1556 4.25389 9.92791 4.48157L9.52581 4.88367C9.46599 5.22738 9.63626 5.69076 10.036 6.09047C10.4357 6.49017 10.8991 6.66044 11.2428 6.60062L11.6449 6.19852C11.8725 5.97084 12.0005 5.66203 12.0005 5.34004C12.0005 4.66953 11.4569 4.12598 10.7864 4.12598ZM10.3671 7.47631C9.97046 7.32906 9.60994 7.07865 9.32886 6.79757C9.04778 6.51649 8.79738 6.15598 8.65012 5.75936L7.3167 7.09279C6.24558 8.16391 5.4857 9.506 5.11831 10.9756L5.10745 11.019L5.15087 11.0081C6.62044 10.6407 7.96253 9.88086 9.03365 8.80974L10.3671 7.47631Z"
+                      fill="#2DC574"
+                    ></path>
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M3.33203 14.293C3.33203 14.0168 3.55589 13.793 3.83203 13.793H13.1654C13.4415 13.793 13.6654 14.0168 13.6654 14.293C13.6654 14.5691 13.4415 14.793 13.1654 14.793H3.83203C3.55589 14.793 3.33203 14.5691 3.33203 14.293Z"
+                      fill="#2DC574"
+                    ></path>
+                  </svg>
+                </span>
+              </template>
             </div>
           </div>
           <div class="settings-section__field is-flex">
             <div class="radio-label settings-section__radio">
               <input
+                v-model="notify"
                 id="is-notification-telegram"
                 type="radio"
                 name="notification"
@@ -141,30 +160,44 @@
               >
             </div>
             <div class="settings-section__current-param">
-              <span class="settings-section__current-param-text"></span>
-              <span class="settings-section__current-param-edit"
-                ><svg
-                  width="17"
-                  height="17"
-                  viewBox="0 0 17 17"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon settings-section__current-param-edit-icon"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M9.22081 3.77446C9.63603 3.35924 10.1992 3.12598 10.7864 3.12598C12.0092 3.12598 13.0005 4.11725 13.0005 5.34004C13.0005 5.92725 12.7672 6.49041 12.352 6.90563L9.74075 9.51684C8.54147 10.7161 7.0388 11.5669 5.39341 11.9783L4.88871 12.1044C4.36527 12.2353 3.89113 11.7612 4.02199 11.2377L4.14816 10.733C4.55951 9.08763 5.41031 7.58496 6.60959 6.38568L9.22081 3.77446ZM10.7864 4.12598C10.4644 4.12598 10.1556 4.25389 9.92791 4.48157L9.52581 4.88367C9.46599 5.22738 9.63626 5.69076 10.036 6.09047C10.4357 6.49017 10.8991 6.66044 11.2428 6.60062L11.6449 6.19852C11.8725 5.97084 12.0005 5.66203 12.0005 5.34004C12.0005 4.66953 11.4569 4.12598 10.7864 4.12598ZM10.3671 7.47631C9.97046 7.32906 9.60994 7.07865 9.32886 6.79757C9.04778 6.51649 8.79738 6.15598 8.65012 5.75936L7.3167 7.09279C6.24558 8.16391 5.4857 9.506 5.11831 10.9756L5.10745 11.019L5.15087 11.0081C6.62044 10.6407 7.96253 9.88086 9.03365 8.80974L10.3671 7.47631Z"
-                    fill="#2DC574"
-                  ></path>
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M3.33203 14.293C3.33203 14.0168 3.55589 13.793 3.83203 13.793H13.1654C13.4415 13.793 13.6654 14.0168 13.6654 14.293C13.6654 14.5691 13.4415 14.793 13.1654 14.793H3.83203C3.55589 14.793 3.33203 14.5691 3.33203 14.293Z"
-                    fill="#2DC574"
-                  ></path>
-                </svg>
-              </span>
+              <template v-if="isInputTg">
+                <div class="input-field__main">
+                  <input
+                    v-model="tg"
+                    type="text"
+                    name="text-field"
+                    placeholder=""
+                    class="input-field__input input"
+                  />
+                </div>
+              </template>
+              <template v-else>
+                <span
+                  @click="handlerInputTg"
+                  class="settings-section__current-param-edit"
+                  ><svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 17 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon settings-section__current-param-edit-icon"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M9.22081 3.77446C9.63603 3.35924 10.1992 3.12598 10.7864 3.12598C12.0092 3.12598 13.0005 4.11725 13.0005 5.34004C13.0005 5.92725 12.7672 6.49041 12.352 6.90563L9.74075 9.51684C8.54147 10.7161 7.0388 11.5669 5.39341 11.9783L4.88871 12.1044C4.36527 12.2353 3.89113 11.7612 4.02199 11.2377L4.14816 10.733C4.55951 9.08763 5.41031 7.58496 6.60959 6.38568L9.22081 3.77446ZM10.7864 4.12598C10.4644 4.12598 10.1556 4.25389 9.92791 4.48157L9.52581 4.88367C9.46599 5.22738 9.63626 5.69076 10.036 6.09047C10.4357 6.49017 10.8991 6.66044 11.2428 6.60062L11.6449 6.19852C11.8725 5.97084 12.0005 5.66203 12.0005 5.34004C12.0005 4.66953 11.4569 4.12598 10.7864 4.12598ZM10.3671 7.47631C9.97046 7.32906 9.60994 7.07865 9.32886 6.79757C9.04778 6.51649 8.79738 6.15598 8.65012 5.75936L7.3167 7.09279C6.24558 8.16391 5.4857 9.506 5.11831 10.9756L5.10745 11.019L5.15087 11.0081C6.62044 10.6407 7.96253 9.88086 9.03365 8.80974L10.3671 7.47631Z"
+                      fill="#2DC574"
+                    ></path>
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M3.33203 14.293C3.33203 14.0168 3.55589 13.793 3.83203 13.793H13.1654C13.4415 13.793 13.6654 14.0168 13.6654 14.293C13.6654 14.5691 13.4415 14.793 13.1654 14.793H3.83203C3.55589 14.793 3.33203 14.5691 3.33203 14.293Z"
+                      fill="#2DC574"
+                    ></path>
+                  </svg>
+                </span>
+              </template>
             </div>
           </div>
         </div>
@@ -174,6 +207,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 import tippy from 'tippy.js';
 import { roundArrow } from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
@@ -181,6 +216,17 @@ import 'tippy.js/dist/svg-arrow.css';
 
 export default {
   name: 'SettingNotifications',
+  data() {
+    return {
+      notify: null,
+
+      isInputEmail: false,
+      isInputTg: false,
+
+      email: '',
+      tg: '',
+    };
+  },
   mounted() {
     tippy('#tippy-push-js', {
       content: 'Можно установить только в приложении',
@@ -189,6 +235,22 @@ export default {
       delay: [50, 300],
       arrow: roundArrow,
     });
+  },
+  computed: {
+    ...mapGetters('settingsStore', ['dataUser']),
+  },
+  methods: {
+    handlerInputEmail() {
+      this.isInputEmail = true;
+    },
+    handlerInputTg() {
+      this.isInputTg = true;
+    },
+  },
+  watch: {
+    dataUser() {
+      this.notify = this.dataUser.notifytype;
+    },
   },
 };
 </script>
@@ -299,5 +361,52 @@ export default {
   color: #2dc574;
   -webkit-text-decoration: underline;
   text-decoration: underline;
+}
+
+/* *** INPUT *** */
+
+.input-field__main {
+  position: relative;
+}
+
+.settings-section .input {
+  padding: 0.8rem 1rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 1.4rem 1.3rem;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #fff;
+  border: 0.1rem solid #e1e1e3;
+  -webkit-border-radius: 0.3rem;
+  -moz-border-radius: 0.3rem;
+  border-radius: 0.3rem;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  color: #222;
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.1;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.input:focus {
+  border: 1px solid #2dc574;
+  -webkit-transition: border 0.5s ease-out;
+  -moz-transition: border 0.5s ease-out;
+  -o-transition: border 0.5s ease-out;
+  transition: border 0.5s ease-out;
 }
 </style>

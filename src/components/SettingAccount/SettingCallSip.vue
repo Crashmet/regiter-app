@@ -5,7 +5,12 @@
       <div
         class="switcher-label settings-section__switcher switcher-label--thin"
       >
-        <input id="input51" type="checkbox" class="switcher-label__input" />
+        <input
+          v-model="sip"
+          id="input51"
+          type="checkbox"
+          class="switcher-label__input"
+        />
         <label for="input51" class="switcher-label__main"></label>
       </div>
     </div>
@@ -22,8 +27,27 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'SettingCallSip',
+  data() {
+    return {
+      sip: false,
+    };
+  },
+  computed: {
+    ...mapGetters('settingsStore', ['dataUser']),
+  },
+  watch: {
+    dataUser() {
+      if (this.dataUser.turbosip === 'off') {
+        return (this.sip = false);
+      } else {
+        return (this.sip = true);
+      }
+    },
+  },
 };
 </script>
 

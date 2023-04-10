@@ -5,14 +5,11 @@
     </div>
     <div class="wide-section__body">
       <div class="settings-section__fields">
-        <div
-          class="input-field settings-section__field"
-          readonly="readonly"
-          value="Частное лицо"
-        >
+        <div class="input-field settings-section__field">
           <label class="input-field__label caption">Компания</label>
           <div class="input-field__main">
             <input
+              v-model="companyName"
               type="text"
               name="text-field"
               readonly="readonly"
@@ -21,14 +18,11 @@
             <div class="extra-field__currency"></div>
           </div>
         </div>
-        <div
-          class="input-field settings-section__field"
-          readonly="readonly"
-          value="9961235606"
-        >
+        <div class="input-field settings-section__field">
           <label class="input-field__label caption">Логин</label>
           <div class="input-field__main">
             <input
+              v-model="login"
               type="text"
               name="text-field"
               placeholder=""
@@ -38,39 +32,37 @@
             <div class="extra-field__currency"></div>
           </div>
         </div>
-        <div class="input-field settings-section__field" value="79961235606">
+        <div class="input-field settings-section__field">
           <label class="input-field__label caption">Номер телефона</label>
           <div class="input-field__main">
-            <!---->
             <input
+              v-model="phone"
               type="text"
               name="text-field"
               placeholder=""
               class="input-field__input input"
             />
             <div class="extra-field__currency"></div>
-            <!---->
           </div>
         </div>
-        <div class="input-field settings-section__field" value="Анонимус-2">
+        <div class="input-field settings-section__field">
           <label class="input-field__label caption">Имя</label>
           <div class="input-field__main">
-            <!---->
             <input
+              v-model="firstName"
               type="text"
               name="text-field"
               placeholder=""
               class="input-field__input input"
             />
             <div class="extra-field__currency"></div>
-            <!---->
           </div>
         </div>
         <div class="input-field settings-section__field" value="">
           <label class="input-field__label caption">Фамилия</label>
           <div class="input-field__main">
-            <!---->
             <input
+              v-model="lastName"
               type="text"
               name="text-field"
               placeholder=""
@@ -78,7 +70,6 @@
             />
             <div class="extra-field__currency"></div>
             <small class="settings-section__info">* Не обязательно</small>
-            <!---->
           </div>
         </div>
       </div>
@@ -87,8 +78,36 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'AccountData',
+  data() {
+    return {};
+  },
+  computed: {
+    ...mapGetters('settingsStore', ['dataUser']),
+
+    companyName() {
+      return this.dataUser.companyName;
+    },
+
+    login() {
+      return this.dataUser.login;
+    },
+
+    phone() {
+      return this.dataUser.phone;
+    },
+
+    firstName() {
+      return this.dataUser.firstName;
+    },
+
+    lastName() {
+      return this.dataUser.lastName;
+    },
+  },
 };
 </script>
 

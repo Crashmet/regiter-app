@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
+
 import Header from './components/SettingAccount/Header.vue';
 import SettingCallSip from './components/SettingAccount/SettingCallSip.vue';
 import AccountData from './components/SettingAccount/AccountData.vue';
@@ -30,6 +32,20 @@ export default {
     SettingViewCards,
     SettingNotifications,
     OthersSettings,
+  },
+  created() {
+    this.fetchLoginUser();
+  },
+  computed: {
+    ...mapGetters('settingsStore', ['token', 'dataUser']),
+  },
+  methods: {
+    ...mapActions('settingsStore', ['fetchLoginUser', 'fetchSettingsList']),
+  },
+  watch: {
+    token() {
+      this.fetchSettingsList();
+    },
   },
 };
 </script>
