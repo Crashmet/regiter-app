@@ -109,8 +109,6 @@ const settingsStore = {
 
       const dataJson = JSON.stringify(userData);
 
-      console.log(dataJson);
-
       await axios
         .put(`/user/${state.userId}`, dataJson, {
           headers: {
@@ -122,7 +120,7 @@ const settingsStore = {
           },
         })
         .then(function (response) {
-          console.log(response);
+          alert(`status: ${response.status}`);
         })
         .catch(function (error) {
           console.log(error);
