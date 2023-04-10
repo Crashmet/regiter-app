@@ -19,7 +19,38 @@ const settingsStore = {
     },
 
     SET_DATA_USER(state, responseDataUser) {
-      Vue.set(state, 'dataUser', responseDataUser);
+      const {
+        turbosip,
+        companyname: companyName,
+        login,
+        phone,
+        fname: firstName,
+        lname: lastName,
+        notifytype,
+        email,
+        telegramChat,
+        sendMethod,
+        timezonestring,
+        locklentaupdate,
+        colorlenta,
+      } = responseDataUser;
+
+      const dataUser = {
+        turbosip,
+        companyName,
+        login,
+        phone,
+        firstName,
+        lastName,
+        notifytype,
+        email,
+        telegramChat,
+        sendMethod,
+        timezonestring,
+        locklentaupdate,
+        colorlenta,
+      };
+      Vue.set(state, 'dataUser', dataUser);
     },
   },
   getters: {
@@ -54,7 +85,7 @@ const settingsStore = {
         });
     },
 
-    async fetchSettingsList({ state, commit }) {
+    async fetchUserData({ state, commit }) {
       await axios
         .get(`/user/${state.userId}`, {
           headers: {
@@ -66,40 +97,32 @@ const settingsStore = {
           },
         })
         .then(function (response) {
+          commit('SET_DATA_USER', response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
+
+    async setUserData({ state, commit }, userData) {
+      commit('SET_DATA_USER', userData);
+
+      const dataJson = JSON.stringify(userData);
+
+      console.log(dataJson);
+
+      await axios
+        .put(`/user/${state.userId}`, dataJson, {
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+            'X-Api-Key': '8bcfb6e1-4fa8-4fae-872c-a435bbdbe8d9',
+            'X-User-Token': `${state.token}`,
+            'X-Device-OS': 'win',
+          },
+        })
+        .then(function (response) {
           console.log(response);
-          const {
-            turbosip,
-            companyname: companyName,
-            login,
-            phone,
-            fname: firstName,
-            lname: lastName,
-            notifytype,
-            email,
-            telegramChat,
-            sendMethod,
-            timezonestring,
-            locklentaupdate,
-            colorlenta,
-          } = response.data;
-
-          const responseDataUser = {
-            turbosip,
-            companyName,
-            login,
-            phone,
-            firstName,
-            lastName,
-            notifytype,
-            email,
-            telegramChat,
-            sendMethod,
-            timezonestring,
-            locklentaupdate,
-            colorlenta,
-          };
-
-          commit('SET_DATA_USER', responseDataUser);
         })
         .catch(function (error) {
           console.log(error);

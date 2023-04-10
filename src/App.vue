@@ -68,22 +68,28 @@ export default {
     ...mapGetters('settingsStore', ['token', 'dataUser']),
   },
   methods: {
-    ...mapActions('settingsStore', ['fetchLoginUser', 'fetchSettingsList']),
+    ...mapActions('settingsStore', [
+      'fetchLoginUser',
+      'fetchUserData',
+      'setUserData',
+    ]),
 
     handlerSaveUserData() {
-      console.log(
-        this.turbosip,
-        this.phone,
-        this.firstName,
-        this.lastName,
-        this.notifytype,
-        this.email,
-        this.telegramChat,
-        this.sendMethod,
-        this.cityInput,
-        this.isLockLentaUpdate,
-        this.isColorLenta
-      );
+      const userData = {
+        turbosip: this.turbosip,
+        phone: this.phone,
+        fname: this.firstName,
+        lname: this.lastName,
+        notifytype: this.notifytype,
+        email: this.email,
+        telegramChat: this.telegramChat,
+        sendMethod: this.sendMethod,
+        timezonestring: this.cityInput,
+        locklentaupdate: this.isLockLentaUpdate,
+        colorlenta: this.isColorLenta,
+      };
+
+      this.setUserData(userData);
     },
 
     emitSip(turbosip) {
@@ -132,7 +138,7 @@ export default {
   },
   watch: {
     token() {
-      this.fetchSettingsList();
+      this.fetchUserData();
     },
   },
 };
