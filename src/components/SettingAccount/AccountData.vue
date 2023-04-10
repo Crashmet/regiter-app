@@ -102,11 +102,23 @@ export default {
   },
   watch: {
     dataUser() {
-      this.phone = this.dataUser.phone;
+      this.phone = this.dataUser.phone === 'string' ? '' : this.dataUser.phone;
 
       this.firstName = this.dataUser.firstName;
 
       this.lastName = this.dataUser.lastName;
+    },
+
+    phone() {
+      this.$emit('emitPhone', this.phone);
+    },
+
+    firstName() {
+      this.$emit('emitFirstName', this.firstName);
+    },
+
+    lastName() {
+      this.$emit('emitLastName', this.lastName);
     },
   },
 };

@@ -3,11 +3,24 @@
     <Header />
     <div class="container-fluid padding-top-2 mb-100" style="padding-top: 2rem">
       <div class="settings-section">
-        <setting-call-sip />
-        <account-data />
-        <setting-notifications />
-        <setting-view-cards />
-        <others-settings @handlerSaveUserData="handlerSaveUserData" />
+        <setting-call-sip @emitSip="emitSip" />
+        <account-data
+          @emitPhone="emitPhone"
+          @emitFirstName="emitFirstName"
+          @emitLastName="emitLastName"
+        />
+        <setting-notifications
+          @emitNotifytype="emitNotifytype"
+          @emitEmail="emitEmail"
+          @emitTelegramChat="emitTelegramChat"
+        />
+        <setting-view-cards @emitSendMethod="emitSendMethod" />
+        <others-settings
+          @handlerSaveUserData="handlerSaveUserData"
+          @emitCityInput="emitCityInput"
+          @emitisLockLentaUpdate="emitisLockLentaUpdate"
+          @emitisColorLenta="emitisColorLenta"
+        />
       </div>
     </div>
   </div>
@@ -33,6 +46,21 @@ export default {
     SettingNotifications,
     OthersSettings,
   },
+  data() {
+    return {
+      turbosip: 'off',
+      phone: '',
+      firstName: '',
+      lastName: '',
+      notifytype: 0,
+      email: '',
+      telegramChat: '',
+      sendMethod: 0,
+      cityInput: '',
+      isLockLentaUpdate: false,
+      isColorLenta: true,
+    };
+  },
   created() {
     this.fetchLoginUser();
   },
@@ -43,7 +71,63 @@ export default {
     ...mapActions('settingsStore', ['fetchLoginUser', 'fetchSettingsList']),
 
     handlerSaveUserData() {
-      console.log(1231);
+      console.log(
+        this.turbosip,
+        this.phone,
+        this.firstName,
+        this.lastName,
+        this.notifytype,
+        this.email,
+        this.telegramChat,
+        this.sendMethod,
+        this.cityInput,
+        this.isLockLentaUpdate,
+        this.isColorLenta
+      );
+    },
+
+    emitSip(turbosip) {
+      this.turbosip = turbosip;
+    },
+
+    emitPhone(phone) {
+      this.phone = phone;
+    },
+
+    emitFirstName(firstName) {
+      this.firstName = firstName;
+    },
+
+    emitLastName(lastName) {
+      this.lastName = lastName;
+    },
+
+    emitNotifytype(notifytype) {
+      this.notifytype = notifytype;
+    },
+
+    emitEmail(email) {
+      this.email = email;
+    },
+
+    emitTelegramChat(telegramChat) {
+      this.telegramChat = telegramChat;
+    },
+
+    emitSendMethod(sendMethod) {
+      this.sendMethod = sendMethod;
+    },
+
+    emitCityInput(cityInput) {
+      this.cityInput = cityInput;
+    },
+
+    emitisLockLentaUpdate(isLockLentaUpdate) {
+      this.isLockLentaUpdate = isLockLentaUpdate;
+    },
+
+    emitisColorLenta(isColorLenta) {
+      this.isColorLenta = isColorLenta;
     },
   },
   watch: {

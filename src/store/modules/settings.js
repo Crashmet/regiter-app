@@ -66,6 +66,7 @@ const settingsStore = {
           },
         })
         .then(function (response) {
+          console.log(response);
           const {
             turbosip,
             companyname: companyName,
@@ -74,7 +75,8 @@ const settingsStore = {
             fname: firstName,
             lname: lastName,
             notifytype,
-            notifytypestring,
+            email,
+            telegramChat,
             sendMethod,
             timezonestring,
             locklentaupdate,
@@ -89,7 +91,8 @@ const settingsStore = {
             firstName,
             lastName,
             notifytype,
-            notifytypestring,
+            email,
+            telegramChat,
             sendMethod,
             timezonestring,
             locklentaupdate,

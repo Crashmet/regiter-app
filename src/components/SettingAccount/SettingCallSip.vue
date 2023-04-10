@@ -6,7 +6,7 @@
         class="switcher-label settings-section__switcher switcher-label--thin"
       >
         <input
-          v-model="sip"
+          v-model="turbosip"
           id="input51"
           type="checkbox"
           class="switcher-label__input"
@@ -33,19 +33,27 @@ export default {
   name: 'SettingCallSip',
   data() {
     return {
-      sip: false,
+      turbosip: false,
     };
   },
   computed: {
     ...mapGetters('settingsStore', ['dataUser']),
+
+    renderSip() {
+      return this.turbosip ? 'on' : 'off';
+    },
   },
   watch: {
     dataUser() {
       if (this.dataUser.turbosip === 'off') {
-        return (this.sip = false);
+        return (this.turbosip = false);
       } else {
-        return (this.sip = true);
+        return (this.turbosip = true);
       }
+    },
+
+    turbosip() {
+      this.$emit('emitSip', this.renderSip);
     },
   },
 };

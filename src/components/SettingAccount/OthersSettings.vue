@@ -241,6 +241,18 @@ export default {
       this.isLockLentaUpdate = this.dataUser.locklentaupdate;
       this.isColorLenta = this.dataUser.colorlenta;
     },
+
+    cityInput() {
+      this.$emit('emitCityInput', this.cityInput);
+    },
+
+    isLockLentaUpdate() {
+      this.$emit('emitisLockLentaUpdate', this.isLockLentaUpdate);
+    },
+
+    isColorLenta() {
+      this.$emit('emitisColorLenta', this.isColorLenta);
+    },
   },
 };
 </script>

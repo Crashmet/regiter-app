@@ -21,7 +21,7 @@
           <div class="settings-section__field is-flex">
             <div class="radio-label settings-section__radio">
               <input
-                v-model="notify"
+                v-model="notifytype"
                 id="is-notification-none"
                 value="-1"
                 type="radio"
@@ -37,7 +37,7 @@
           <div class="settings-section__field is-flex">
             <div class="radio-label settings-section__radio">
               <input
-                v-model="notify"
+                v-model="notifytype"
                 id="is-notification-push"
                 value="0"
                 type="radio"
@@ -87,7 +87,7 @@
           <div class="settings-section__field is-flex">
             <div class="radio-label settings-section__radio">
               <input
-                v-model="notify"
+                v-model="notifytype"
                 id="is-notification-email"
                 value="2"
                 type="radio"
@@ -144,7 +144,7 @@
           <div class="settings-section__field is-flex">
             <div class="radio-label settings-section__radio">
               <input
-                v-model="notify"
+                v-model="notifytype"
                 id="is-notification-telegram"
                 type="radio"
                 name="notification"
@@ -163,7 +163,7 @@
               <template v-if="isInputTg">
                 <div class="input-field__main">
                   <input
-                    v-model="tg"
+                    v-model="telegramChat"
                     type="text"
                     name="text-field"
                     placeholder=""
@@ -218,13 +218,12 @@ export default {
   name: 'SettingNotifications',
   data() {
     return {
-      notify: 1,
-
       isInputEmail: false,
       isInputTg: false,
 
+      notifytype: 0,
       email: '',
-      tg: '',
+      telegramChat: '',
     };
   },
   mounted() {
@@ -249,7 +248,26 @@ export default {
   },
   watch: {
     dataUser() {
-      this.notify = this.dataUser.notifytype;
+      this.notifytype = this.dataUser.notifytype;
+
+      this.email = this.dataUser.email === 'string' ? '' : this.dataUser.email;
+
+      this.telegramChat =
+        this.dataUser.telegramChat === 'string'
+          ? ''
+          : this.dataUser.telegramChat;
+    },
+
+    notifytype() {
+      this.$emit('emitNotifytype', this.notifytype);
+    },
+
+    email() {
+      this.$emit('emitEmail', this.email);
+    },
+
+    telegramChat() {
+      this.$emit('emitTelegramChat', this.telegramChat);
     },
   },
 };

@@ -131,6 +131,10 @@ export default {
     dataUser() {
       this.sendMethod = this.dataUser.sendMethod;
     },
+
+    sendMethod() {
+      this.$emit('emitSendMethod', this.sendMethod);
+    },
   },
 };
 </script>
