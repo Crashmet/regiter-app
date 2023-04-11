@@ -1,4 +1,17 @@
-# regiter-app
+# Test-A2
+
+# Задание | Решение
+
+### [Exercise](https://crashmet.github.io/Cryptocurrency.com/dist)
+### [Landing](https://crashmet.github.io/regiter-app/dist)
+
+## Используемые библиотеки:
+
+- [Vue](https://vuejs.org/)
+- [Vuex](https://vuex.vuejs.org/)
+- [AXIOS](https://axios-http.com/ru/docs/intro)
+- [Tippy v6](https://atomiks.github.io/tippyjs/)
+- [PerfectScrollbar](https://www.npmjs.com/package/vue2-perfect-scrollbar)
 
 ## Project setup
 ```
