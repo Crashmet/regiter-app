@@ -3,7 +3,7 @@
 # Задание | Решение
 
 ### [Exercise](https://crashmet.github.io/Cryptocurrency.com/dist)
-### [Landing](https://github.com/Crashmet/regiter-app/tree/master/dist)
+### [Landing](https://crashmet.github.io/regiter-app/dist)
 
 ## Используемые библиотеки:
 
