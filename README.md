@@ -10,6 +10,7 @@
 - [Vue](https://vuejs.org/)
 - [Vuex](https://vuex.vuejs.org/)
 - [AXIOS](https://axios-http.com/ru/docs/intro)
+- [Tippy v6](https://atomiks.github.io/tippyjs/)
 - [PerfectScrollbar](https://www.npmjs.com/package/vue2-perfect-scrollbar)
 
 ## Project setup
