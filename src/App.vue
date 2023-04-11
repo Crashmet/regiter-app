@@ -144,7 +144,7 @@ export default {
 };
 </script>
 
-<style scoped src="@/styles/fonts/fonts.css"></style>
+<style src="@/styles/fonts/fonts.css"></style>
 <style src="@/styles/normalize.css"></style>
 <style src="@/styles/allBaseStyle.css"></style>
 
